@@ -1,0 +1,61 @@
+{
+  "classes": 2,
+  "class_names": [
+    "background",
+    "building"
+  ],
+  "bands": 16,
+  "backbone": "segformer_b0",
+  "pretrained": "nvidia/mit-b0",
+  "coarse_size": 640,
+  "tile_size": 512,
+  "border": 64,
+  "low_size": 320,
+  "ignore_index": 255,
+  "image_scale": 1.0,
+  "array_layout": "CHW",
+  "mask_values": null,
+  "mask_colors": null,
+  "spectral": {
+    "enabled": true,
+    "diversity_weight": 0.001,
+    "class_weight": 0.1
+  },
+  "utility": {
+    "damage_penalty": 2.0,
+    "confusion_weight": 0.25,
+    "tp_reward": 1.0,
+    "fp_penalty": 1.0,
+    "fn_penalty": 1.0,
+    "class_weights": [
+      0.25,
+      0.75
+    ]
+  },
+  "routing": {
+    "T1": 0.75,
+    "T2": 0.45,
+    "temperature": 1.0,
+    "utility_veto": true,
+    "max_fraction": 1.0,
+    "max_refine_ms": null,
+    "action_ms": [
+      1.0,
+      1.0
+    ]
+  },
+  "training": {
+    "coarse_steps": 40000,
+    "refiner_steps": 80000,
+    "lr": 6e-05,
+    "warmup_steps": 1500,
+    "log_every": 100,
+    "validate_every": 1000,
+    "validation_images": 8,
+    "selector_epochs": 200,
+    "selector_batch": 128,
+    "selector_lr": 0.001,
+    "patience": 20
+  },
+  "seed": 42
+}
