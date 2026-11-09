@@ -107,9 +107,10 @@ class Segmenter(nn.Module):
 
 class OutcomeSelector(nn.Module):
     """Predict normalized confusion tables and correction/damage for both actions."""
-    def __init__(self, descriptor_dim, classes):
+    def __init__(self, descriptor_dim, classes, shared_marginals=False):
         super().__init__()
         self.classes = classes
+        self.shared_marginals = shared_marginals
         self.trunk = nn.Sequential(nn.LayerNorm(descriptor_dim), nn.Linear(descriptor_dim, 128),
                                    nn.ReLU(), nn.Dropout(.1))
         # [correct->correct, correct->wrong, wrong->correct, wrong->wrong]
@@ -124,6 +125,9 @@ class OutcomeSelector(nn.Module):
         trans = self.transitions(h).reshape(-1, 2, 4).softmax(-1)
         c = self.classes
         cm = self.confusion(h).reshape(-1, 3, c * c).softmax(-1).reshape(-1, 3, c, c)
+        if self.shared_marginals:
+            rows = cm.sum(-1, keepdim=True)
+            cm = cm / rows.clamp_min(1e-8) * rows.mean(1, keepdim=True)
         tp = cm.diagonal(dim1=-2, dim2=-1)
         return {"transitions": trans, "corrected": trans[..., 2], "damaged": trans[..., 1],
                 "confusion": cm, "tp": tp, "fp": cm.sum(-2) - tp,
@@ -134,3 +138,36 @@ def freeze(module):
     module.eval()
     module.requires_grad_(False)
     return module
+
+
+class DetailScout(nn.Module):
+    """Shallow native-resolution scan. Classes: correct / recoverable / unrecoverable."""
+    def __init__(self, bands):
+        super().__init__()
+        self.net = nn.Sequential(nn.Conv2d(bands, 12, 3, padding=1), nn.GELU(),
+                                 nn.Conv2d(12, 12, 3, stride=2, padding=1, groups=12),
+                                 nn.GELU(), nn.Conv2d(12, 3, 1))
+
+    def forward(self, x):
+        return self.net(x)
+
+
+class AcceptanceGate(nn.Module):
+    """Predict correction-vs-damage on disagreements using soft class evidence."""
+    def __init__(self, classes):
+        super().__init__()
+        self.net = nn.Sequential(nn.Conv2d(3 * classes, 24, 1), nn.GELU(),
+                                 nn.Conv2d(24, 1, 1))
+
+    def forward(self, coarse, refined):
+        return self.net(torch.cat((coarse, refined, refined-coarse), 1))[:, 0]
+
+
+class EscalationSelector(nn.Module):
+    """Predict current-vs-high outcomes AFTER observing accepted low probabilities."""
+    def __init__(self, classes):
+        super().__init__()
+        self.outcome = OutcomeSelector(3 * classes + 3, classes)
+
+    def forward(self, z):
+        return self.outcome(z)

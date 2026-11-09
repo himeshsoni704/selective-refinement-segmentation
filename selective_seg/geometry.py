@@ -47,7 +47,7 @@ def feature_region(features, tile, image_hw):
     return features[..., y0:max(y0+1,y1), x0:max(x0+1,x1)].mean((-2,-1))
 
 
-def tile_descriptor(image, probabilities, features, tile, cfg):
+def tile_descriptor(image, probabilities, features, tile, cfg, scout=None):
     y, x, h, w = tile
     pc = probabilities[..., y:y+h, x:x+w].float()
     entropy = -(pc.clamp_min(1e-8) * pc.clamp_min(1e-8).log()).sum(1) / math.log(pc.shape[1])
@@ -70,4 +70,27 @@ def tile_descriptor(image, probabilities, features, tile, cfg):
     edge_y = (patch[..., 1:, :] - patch[..., :-1, :]).abs().mean() if h > 1 else patch.new_zeros(())
     detail = torch.stack((residual.mean(), residual.max(), edge_x, edge_y))[None]
     pooled = feature_region(features.float(), tile, image.shape[-2:])
-    return torch.cat((pooled, pc.mean((-2,-1)), coarse_stats, detail), -1)
+    parts = [pooled, pc.mean((-2,-1)), coarse_stats, detail]
+    from .research import settings
+    r = settings(cfg)
+    if r['descriptor_grid']:
+        g = r['descriptor_grid']
+        maps = torch.cat((pc, (1-margin)[:,None], edges.float()[:,None]), 1)
+        parts.append(F.adaptive_avg_pool2d(maps, (g,g)).flatten(1))
+    if r['scout']:
+        if scout is None:
+            raise ValueError('Scout descriptor requires trained scout evidence')
+        parts.append(scout.mean((-2,-1)))
+    return torch.cat(parts, -1)
+
+
+def escalation_descriptor(coarse, current):
+    """Observed probabilities only; never includes high output or ground truth."""
+    eps = 1e-8
+    entropy = -(current.clamp_min(eps).log()*current).sum(1)
+    top = current.topk(2, 1).values
+    changed = (coarse.argmax(1) != current.argmax(1)).float()
+    stats = torch.stack((entropy.mean((-2,-1)), (top[:,0]-top[:,1]).mean((-2,-1)),
+                         changed.mean((-2,-1))), -1)
+    return torch.cat((coarse.mean((-2,-1)), current.mean((-2,-1)),
+                      (current-coarse).abs().mean((-2,-1)), stats), -1)

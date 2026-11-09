@@ -1,3 +1,18 @@
+# Research extension verification
+
+- `python -m pytest -q`: 21 tests passed on CPU (including random-initialized SegFormer-B0 forward/backward).
+- `python smoke_test.py`: original CLI training/cache/calibration/evaluation workflow passed.
+- `python smoke_research.py`: scout and acceptance training, versioned effective caches, image-grouped metric selector, escalation training, calibration, benchmark profiling and all baseline modes passed on synthetic images.
+- Auxiliary training/selector overlap rejection is exercised end to end.
+- `git diff --check` and Python compilation passed.
+- Runtime: Python 3.12, PyTorch 2.15.0+cpu, Transformers 4.57.1.
+
+No real DeepGlobe data/checkpoints or CUDA device were available. These checks establish execution and selected invariants, **not** mIoU improvements, statistical significance, GPU speedup, complete FLOP accounting, or research novelty. See RESEARCH.md for limitations and the real-data evaluation protocol.
+
+---
+
+## Original project validation record
+
 # Validation performed
 
 Validated locally on 28 October 2026 using Python 3.12, PyTorch 2.14.1 and

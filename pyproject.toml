@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "selective-seg"
-version = "0.1.0"
+version = "0.2.0"
 description = "Three-action selective segmentation with damage-aware outcome prediction"
 requires-python = ">=3.10"
 dependencies = ["torch>=2.5,<3", "transformers==4.57.1", "numpy>=1.26", "pillow>=10"]

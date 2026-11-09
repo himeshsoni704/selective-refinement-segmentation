@@ -7,12 +7,13 @@ from PIL import Image
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--output", default="demo_data")
+parser.add_argument("--auxiliary",type=int,default=0)
 args = parser.parse_args()
 root = Path(args.output)
 root.mkdir(parents=True,exist_ok=True)
 rng = np.random.default_rng(42)
 records = []
-for i,split in enumerate(["train"]*3+["selector"]*2+["val"]*2+["test"]):
+for i,split in enumerate(["train"]*3+["auxiliary"]*args.auxiliary+["selector"]*2+["val"]*2+["test"]):
     y,x = np.mgrid[:79,:91]
     mask = (((x-(28+i*3))**2+(y-38)**2)<(14+i%3)**2).astype(np.uint8)
     image = np.stack((40+170*mask,110-65*mask,60+80*mask),-1).astype(np.float32)

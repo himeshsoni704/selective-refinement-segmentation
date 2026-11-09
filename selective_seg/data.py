@@ -24,6 +24,28 @@ def load_config(path):
         raise ValueError("temperature must be positive")
     if not 0 <= cfg["routing"]["max_fraction"] <= 1:
         raise ValueError("max_fraction must be in [0, 1]")
+    from .research import settings
+    r = settings(cfg)
+    if r['descriptor_grid'] not in (0,1,2,4):
+        raise ValueError('descriptor_grid must be 0, 1, 2, or 4')
+    if cfg['utility'].get('mode','legacy') not in ('legacy','class_weighted','miou'):
+        raise ValueError('Unknown utility mode')
+    if cfg['routing'].get('policy','legacy') not in ('legacy','direct'):
+        raise ValueError('Unknown routing policy')
+    if cfg['utility'].get('mode') == 'miou' and cfg['routing'].get('policy') != 'direct':
+        raise ValueError('mIoU utility requires direct routing')
+    if len(cfg['routing']['action_ms']) != 2 or min(cfg['routing']['action_ms']) <= 0:
+        raise ValueError('action_ms must be positive low/high costs')
+    if cfg['routing'].get('max_refine_ms') is not None and cfg['routing']['max_refine_ms'] < 0:
+        raise ValueError('max_refine_ms must be nonnegative')
+    if cfg['training'].get('cache_timing_passes',1) < 1 or cfg['training'].get('cache_timing_warmup',2) < 0:
+        raise ValueError('Invalid cache timing repetitions')
+    if cfg['training'].get('checkpoint_metric','loss') not in {'loss','miou'}:
+        raise ValueError('checkpoint_metric must be loss or miou')
+    for key in ('class_weights','gate_class_weights'):
+        weights = cfg['training'].get(key)
+        if weights is not None and (len(weights) != cfg['classes'] or min(weights) <= 0):
+            raise ValueError(key+' must contain one positive value per class')
     return cfg
 
 
@@ -32,8 +54,8 @@ def read_manifest(path):
     records = json.loads(path.read_text())
     seen_ids, seen_images = set(), set()
     for r in records:
-        if r["split"] not in {"train", "selector", "val", "test"}:
-            raise ValueError("split must be train, selector, val, or test")
+        if r["split"] not in {"train", "auxiliary", "selector", "val", "test"}:
+            raise ValueError("split must be train, auxiliary, selector, val, or test")
         if r["id"] in seen_ids:
             raise ValueError("Duplicate image ID: " + r["id"])
         seen_ids.add(r["id"])

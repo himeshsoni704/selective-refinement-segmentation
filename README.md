@@ -1,3 +1,7 @@
+# Research extension
+
+See [RESEARCH.md](RESEARCH.md) for the optional core RGB modules, leakage-safe training order, benchmark protocol, ablation presets, compatibility and limitations. The original configuration remains the baseline.
+
 # Selective segmentation with low/high refinement
 
 A trainable research implementation of your five requested changes. It contains
