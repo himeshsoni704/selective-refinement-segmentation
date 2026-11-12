@@ -1,0 +1,10100 @@
+{
+  "mIoU": 0.6598055258851572,
+  "per_class_IoU": [
+    0.7824893204689568,
+    0.8397427670933597,
+    0.34786746135195507,
+    0.6518779681812751,
+    0.7724482222615492,
+    0.5644074159538472
+  ],
+  "confusion": [
+    [
+      41091652,
+      2406816,
+      1759449,
+      139920,
+      58824,
+      356674
+    ],
+    [
+      3254754,
+      259087701,
+      7587942,
+      3502613,
+      757960,
+      1674442
+    ],
+    [
+      2776001,
+      18551412,
+      23854744,
+      3187400,
+      706876,
+      2777127
+    ],
+    [
+      1300,
+      4351173,
+      4363060,
+      38381007,
+      831151,
+      2815839
+    ],
+    [
+      21272,
+      1466059,
+      1571427,
+      260384,
+      23984722,
+      555612
+    ],
+    [
+      647348,
+      5891349,
+      1438794,
+      1043748,
+      835978,
+      23370844
+    ]
+  ],
+  "mean_image_latency_ms": 1536.3358193606045,
+  "median_image_latency_ms": 1437.7484750002623,
+  "p95_image_latency_ms": 2287.91122790426,
+  "mean_pass_latency_ms": [
+    1551.670748539223,
+    1535.8151343915565,
+    1534.9962286317698
+  ],
+  "mean_within_image_cv": 0.014066510997329544,
+  "aggregation": "mean/median/p95 across per-image medians of repeated unprofiled passes",
+  "corrected_pixels": 12455537,
+  "damaged_pixels": 10021087,
+  "valid_pixels": 485363374,
+  "confident_errors": 26783516,
+  "recovered_confident_errors": 3588022,
+  "correction_pairs_predicted_to_true": [
+    [
+      0,
+      510814,
+      781023,
+      1846,
+      0,
+      10550
+    ],
+    [
+      1156510,
+      0,
+      2191701,
+      2541374,
+      136256,
+      982529
+    ],
+    [
+      126154,
+      385676,
+      0,
+      1579633,
+      320788,
+      748024
+    ],
+    [
+      30,
+      436661,
+      100391,
+      0,
+      10161,
+      203617
+    ],
+    [
+      5032,
+      17091,
+      20386,
+      8655,
+      0,
+      1879
+    ],
+    [
+      15069,
+      49902,
+      113763,
+      22,
+      0,
+      0
+    ]
+  ],
+  "damage_pairs_true_to_predicted": [
+    [
+      0,
+      147628,
+      461179,
+      4939,
+      2287,
+      27963
+    ],
+    [
+      374350,
+      0,
+      2559254,
+      1445053,
+      71632,
+      695188
+    ],
+    [
+      93162,
+      384414,
+      0,
+      438963,
+      388313,
+      842684
+    ],
+    [
+      0,
+      117671,
+      803785,
+      0,
+      38765,
+      405763
+    ],
+    [
+      0,
+      11651,
+      9676,
+      2943,
+      0,
+      53623
+    ],
+    [
+      27418,
+      286760,
+      323348,
+      1162,
+      1513,
+      0
+    ]
+  ],
+  "confident_error_recovery_rate": 0.13396381565437487,
+  "actions": {
+    "skip": 1498,
+    "low": 97,
+    "high": 430
+  },
+  "refinement_calls": {
+    "low": 97,
+    "high": 430
+  },
+  "peak_gpu_bytes": 359514112,
+  "peak_gpu_reserved_bytes": 413138944,
+  "cpu_process_peak_rss_bytes": 2471796736,
+  "cpu_memory_scope": "process lifetime high-water mark, including loading/diagnostics/profiling; not isolated inference",
+  "mean_estimated_flops": null,
+  "operation_count_scope": "PyTorch profiler supported operators only; multiply-add counted as two FLOPs; excludes unestimated operators",
+  "mode": "selective",
+  "warmup": 20,
+  "passes": 3,
+  "environment": {
+    "python": "3.12.3",
+    "pytorch": "2.14.1+cu130",
+    "cuda_runtime": "13.0",
+    "cudnn": 92400,
+    "platform": "Linux-6.17.0-1032-oem-x86_64-with-glibc2.39",
+    "cpu": "x86_64",
+    "gpu": "NVIDIA RTX 4500 Ada Generation",
+    "precision": "float16 autocast segmenters; float32 routing",
+    "torch_threads": 96,
+    "batch_size": 1,
+    "deterministic_algorithms": false,
+    "cudnn_benchmark": false,
+    "tf32_matmul": false
+  },
+  "image_ids": [
+    "28559",
+    "518833",
+    "825592",
+    "614561",
+    "952430",
+    "946475",
+    "210436",
+    "978039",
+    "182422",
+    "428597",
+    "349442",
+    "857201",
+    "147716",
+    "170535",
+    "912087",
+    "321711",
+    "749523",
+    "515521",
+    "802645",
+    "81039",
+    "434210",
+    "713813",
+    "182027",
+    "538922",
+    "244423",
+    "692982",
+    "619800",
+    "940229",
+    "143794",
+    "40168",
+    "778804",
+    "499511",
+    "513968",
+    "208495",
+    "541060",
+    "202277",
+    "989499",
+    "495406",
+    "340798",
+    "277644",
+    "958243",
+    "499161",
+    "983603",
+    "902350",
+    "280861",
+    "10452",
+    "416794",
+    "763892",
+    "609234",
+    "343425",
+    "584865",
+    "987381",
+    "908837",
+    "841404",
+    "923618",
+    "326238",
+    "726265",
+    "129297",
+    "77669",
+    "655313",
+    "351727",
+    "343215",
+    "204494",
+    "133209",
+    "13415",
+    "586222",
+    "765792",
+    "195769",
+    "705728",
+    "949235",
+    "875409",
+    "210473",
+    "946386",
+    "263576",
+    "345494",
+    "373186",
+    "413779",
+    "949559",
+    "127660",
+    "221278",
+    "829962"
+  ],
+  "config": {
+    "classes": 6,
+    "class_names": [
+      "urban",
+      "agriculture",
+      "rangeland",
+      "forest",
+      "water",
+      "barren"
+    ],
+    "bands": 3,
+    "backbone": "segformer_b0",
+    "pretrained": "nvidia/mit-b0",
+    "coarse_size": 640,
+    "tile_size": 512,
+    "border": 64,
+    "low_size": 320,
+    "ignore_index": 255,
+    "image_scale": 255.0,
+    "array_layout": "CHW",
+    "mask_values": null,
+    "mask_colors": {
+      "0,255,255": 0,
+      "255,255,0": 1,
+      "255,0,255": 2,
+      "0,255,0": 3,
+      "0,0,255": 4,
+      "255,255,255": 5,
+      "0,0,0": 255
+    },
+    "spectral": {
+      "enabled": false,
+      "diversity_weight": 0.001,
+      "class_weight": 0.1
+    },
+    "utility": {
+      "damage_penalty": 2.0,
+      "confusion_weight": 0.25,
+      "tp_reward": 1.0,
+      "fp_penalty": 1.0,
+      "fn_penalty": 1.0,
+      "class_weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "routing": {
+      "T1": 0.3,
+      "T2": 0.15,
+      "temperature": 1.2752645015716553,
+      "utility_veto": true,
+      "max_fraction": 1.0,
+      "max_refine_ms": null,
+      "action_ms": [
+        10.74262809753418,
+        9.959490776062012
+      ]
+    },
+    "training": {
+      "coarse_steps": 40000,
+      "refiner_steps": 80000,
+      "lr": 6e-05,
+      "warmup_steps": 1500,
+      "log_every": 100,
+      "validate_every": 1000,
+      "validation_images": 8,
+      "selector_epochs": 200,
+      "selector_batch": 128,
+      "selector_lr": 0.001,
+      "patience": 20
+    },
+    "seed": 42
+  },
+  "provenance": {
+    "coarse": "4ab988f228bbd6f133c6b705c177a12187f5b73e7d9bae22d67bfdc37656f508",
+    "low": "cb4c43beffa884eee4eafd50a105b5d56ec98a907237acf22a637ddedd21c6cd",
+    "high": "c7d22638b7119ed672da1300a5cf331150060a0591bdae4670c813c443431619"
+  },
+  "timing_excludes": "decoding/file I/O, checkpoint loading, output writing, diagnostic construction and extra profiling passes",
+  "timing_includes": "decoded CPU input to completed CPU mask, CPU work, transfers, all enabled inference modules",
+  "budget_scope": "estimated refinement only; profiled comparisons include profiling overhead; not total-latency guarantees",
+  "images": [
+    {
+      "id": "28559",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1496.0883343592286,
+        1536.4279369823635,
+        1489.4764991477132
+      ],
+      "estimated_refine_ms": 73.63212203979492,
+      "escalations": 0,
+      "corrected_pixels": 37752,
+      "damaged_pixels": 98579,
+      "valid_pixels": 5992473,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          37039,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          713,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          14925,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          83654,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 395197,
+      "recovered_confident_errors": 6110,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "518833",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1569.3719270639122,
+        1585.3185979649425,
+        1596.230030991137
+      ],
+      "estimated_refine_ms": 60.54008197784424,
+      "escalations": 0,
+      "corrected_pixels": 95115,
+      "damaged_pixels": 200202,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          7822,
+          0,
+          64857,
+          0,
+          0,
+          0
+        ],
+        [
+          8904,
+          6857,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          30,
+          0,
+          6645,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          8218,
+          0,
+          0,
+          0
+        ],
+        [
+          14,
+          0,
+          178633,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1424,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          11913,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 223834,
+      "recovered_confident_errors": 7912,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "825592",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1807.879745028913,
+        1629.0699332021177,
+        1662.0903359726071
+      ],
+      "estimated_refine_ms": 81.24220085144043,
+      "escalations": 0,
+      "corrected_pixels": 49868,
+      "damaged_pixels": 168332,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          8173,
+          0,
+          7634,
+          0,
+          1469,
+          0
+        ],
+        [
+          0,
+          26747,
+          0,
+          0,
+          5825,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          20,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          114567,
+          0,
+          34,
+          0
+        ],
+        [
+          0,
+          52538,
+          0,
+          0,
+          742,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          451,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 420514,
+      "recovered_confident_errors": 8281,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "614561",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1248.9118510857224,
+        1314.172735903412,
+        1243.478201329708
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 33402,
+      "damaged_pixels": 1631,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          9003,
+          735,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          11752,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2503,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8171,
+          871,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          72,
+          295,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          865,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          41,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          725,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 13821,
+      "recovered_confident_errors": 6218,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "952430",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1506.2455888837576,
+        1398.4840540215373,
+        1402.7399686165154
+      ],
+      "estimated_refine_ms": 41.40423774719238,
+      "escalations": 0,
+      "corrected_pixels": 23925,
+      "damaged_pixels": 121463,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          20443,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3478,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          121463,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 152173,
+      "recovered_confident_errors": 97,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "946475",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1809.4773176126182,
+        1821.4139440096915,
+        1825.2542959526181
+      ],
+      "estimated_refine_ms": 116.60263442993164,
+      "escalations": 0,
+      "corrected_pixels": 79819,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7373
+        ],
+        [
+          16780,
+          0,
+          0,
+          0,
+          0,
+          55666
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 532334,
+      "recovered_confident_errors": 35323,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "210436",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1381.705332081765,
+        1437.7484750002623,
+        1549.8322490602732
+      ],
+      "estimated_refine_ms": 29.878472328186035,
+      "escalations": 0,
+      "corrected_pixels": 39729,
+      "damaged_pixels": 13687,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          17601,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          14226,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1313,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          6589,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          12745,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          942,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 34958,
+      "recovered_confident_errors": 11493,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "978039",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1522.2411812283099,
+        1446.1188479326665,
+        1422.187717165798
+      ],
+      "estimated_refine_ms": 39.83796310424805,
+      "escalations": 0,
+      "corrected_pixels": 76597,
+      "damaged_pixels": 33810,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8004,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          68490,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          103,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          33810,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 69301,
+      "recovered_confident_errors": 17797,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "182422",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        2161.500994116068,
+        2229.240246117115,
+        2140.900799073279
+      ],
+      "estimated_refine_ms": 184.7527952194214,
+      "escalations": 0,
+      "corrected_pixels": 125637,
+      "damaged_pixels": 392998,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          72489,
+          0,
+          19750
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          33398
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          37071,
+          127088,
+          0,
+          27054
+        ],
+        [
+          0,
+          0,
+          0,
+          5057,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          33003,
+          0,
+          0,
+          163725
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 193006,
+      "recovered_confident_errors": 24074,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "428597",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        2010.0001571699977,
+        2048.247755970806,
+        2114.0282778069377
+      ],
+      "estimated_refine_ms": 159.3518524169922,
+      "escalations": 0,
+      "corrected_pixels": 1371756,
+      "damaged_pixels": 728634,
+      "valid_pixels": 5991509,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          4450,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          657996,
+          103812,
+          605498
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          430947,
+          296711,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          976,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 2705234,
+      "recovered_confident_errors": 1339582,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "349442",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1538.528681267053,
+        1422.0966761931777,
+        1459.2284075915813
+      ],
+      "estimated_refine_ms": 49.79745388031006,
+      "escalations": 0,
+      "corrected_pixels": 124593,
+      "damaged_pixels": 10364,
+      "valid_pixels": 5992581,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          14285,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          98948,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          719,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8706,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1935,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          6360,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4004,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 51735,
+      "recovered_confident_errors": 15384,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "857201",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1391.6956717148423,
+        1344.5360749028623,
+        1322.9989022947848
+      ],
+      "estimated_refine_ms": 31.44474697113037,
+      "escalations": 0,
+      "corrected_pixels": 0,
+      "damaged_pixels": 30841,
+      "valid_pixels": 5992660,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          8173
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          22668
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 2045713,
+      "recovered_confident_errors": 0,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "147716",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1165.712668094784,
+        1162.448663264513,
+        1161.7074199020863
+      ],
+      "estimated_refine_ms": 0,
+      "escalations": 0,
+      "corrected_pixels": 0,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 108225,
+      "recovered_confident_errors": 0,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "170535",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        2041.9739438220859,
+        1856.6798120737076,
+        1856.2217890284956
+      ],
+      "estimated_refine_ms": 148.047381401062,
+      "escalations": 0,
+      "corrected_pixels": 824516,
+      "damaged_pixels": 46564,
+      "valid_pixels": 5986969,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          181944,
+          14389,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          524775,
+          90952,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          3801,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          8655,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          6207,
+          0,
+          38240,
+          0
+        ],
+        [
+          0,
+          0,
+          150,
+          1967,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 66364,
+      "recovered_confident_errors": 35922,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "912087",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1325.1163982786238,
+        1335.8443100005388,
+        1320.6744100898504
+      ],
+      "estimated_refine_ms": 30.661609649658203,
+      "escalations": 0,
+      "corrected_pixels": 23414,
+      "damaged_pixels": 10722,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          23140,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          274,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          4225,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3958,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2539,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 206974,
+      "recovered_confident_errors": 757,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "321711",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1467.7796699106693,
+        1430.5656482465565,
+        1418.3778068982065
+      ],
+      "estimated_refine_ms": 39.83796310424805,
+      "escalations": 0,
+      "corrected_pixels": 66615,
+      "damaged_pixels": 48489,
+      "valid_pixels": 5992696,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          32286
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          34329,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          48489,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 148430,
+      "recovered_confident_errors": 41355,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "749523",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1403.8785183802247,
+        1420.1353858225048,
+        1449.1771757602692
+      ],
+      "estimated_refine_ms": 42.18737506866455,
+      "escalations": 0,
+      "corrected_pixels": 59328,
+      "damaged_pixels": 3642,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          59328,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3642,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 163640,
+      "recovered_confident_errors": 932,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "515521",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1270.5246778205037,
+        1302.8782857581973,
+        1253.5753389820457
+      ],
+      "estimated_refine_ms": 19.918981552124023,
+      "escalations": 0,
+      "corrected_pixels": 25592,
+      "damaged_pixels": 9365,
+      "valid_pixels": 5992639,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          12430,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          13162,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          7463,
+          0,
+          1599,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          303,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 218455,
+      "recovered_confident_errors": 8503,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "802645",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1757.6474188826978,
+        1708.7310417555273,
+        1735.2080019190907
+      ],
+      "estimated_refine_ms": 109.55439853668213,
+      "escalations": 0,
+      "corrected_pixels": 110168,
+      "damaged_pixels": 344327,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          58922,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          51246,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          61154,
+          28436,
+          0,
+          0,
+          0
+        ],
+        [
+          62019,
+          0,
+          192718,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 105000,
+      "recovered_confident_errors": 17697,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "81039",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1228.0717608518898,
+        1222.9637182317674,
+        1243.188537657261
+      ],
+      "estimated_refine_ms": 10.74262809753418,
+      "escalations": 0,
+      "corrected_pixels": 15455,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          5050,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          10405,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 138268,
+      "recovered_confident_errors": 1546,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "434210",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1604.2709429748356,
+        1440.367199946195,
+        1591.1570419557393
+      ],
+      "estimated_refine_ms": 49.79745388031006,
+      "escalations": 0,
+      "corrected_pixels": 15266,
+      "damaged_pixels": 517857,
+      "valid_pixels": 5990027,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          1639,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          338,
+          0,
+          0,
+          0,
+          0,
+          2018
+        ],
+        [
+          0,
+          76,
+          0,
+          0,
+          0,
+          11195
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          434,
+          6854,
+          0,
+          0,
+          0
+        ],
+        [
+          2053,
+          0,
+          122454,
+          0,
+          0,
+          363185
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          554,
+          0,
+          0,
+          0,
+          22323
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 3887,
+      "recovered_confident_errors": 0,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "713813",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1758.8812671601772,
+        1777.2020590491593,
+        1737.4048670753837
+      ],
+      "estimated_refine_ms": 109.55439853668213,
+      "escalations": 0,
+      "corrected_pixels": 538481,
+      "damaged_pixels": 285682,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          1846,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          77519,
+          344,
+          37456,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          388607,
+          32709,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          16695,
+          4939,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2420,
+          2506,
+          0
+        ],
+        [
+          0,
+          0,
+          259122,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 357409,
+      "recovered_confident_errors": 24413,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "182027",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1400.8228639140725,
+        1436.4508129656315,
+        1416.9678492471576
+      ],
+      "estimated_refine_ms": 41.40423774719238,
+      "escalations": 0,
+      "corrected_pixels": 6980,
+      "damaged_pixels": 3087,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          5040,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1940,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          1999,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1088,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 275873,
+      "recovered_confident_errors": 0,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "538922",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1251.7602168954909,
+        1308.6884380318224,
+        1296.0464949719608
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 25930,
+      "damaged_pixels": 6105,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          11891,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          13300,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          739,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          6105,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 10103,
+      "recovered_confident_errors": 6731,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "244423",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        2168.633906170726,
+        1965.0300820358098,
+        1979.1915048845112
+      ],
+      "estimated_refine_ms": 149.39236164093018,
+      "escalations": 0,
+      "corrected_pixels": 674266,
+      "damaged_pixels": 327437,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          5713,
+          15053,
+          0,
+          0,
+          1177
+        ],
+        [
+          23665,
+          0,
+          596701,
+          0,
+          0,
+          2151
+        ],
+        [
+          21847,
+          1246,
+          0,
+          0,
+          0,
+          252
+        ],
+        [
+          0,
+          4632,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          112,
+          0,
+          0,
+          0,
+          1717
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          843,
+          17213,
+          0,
+          0,
+          190
+        ],
+        [
+          2643,
+          0,
+          285150,
+          0,
+          0,
+          0
+        ],
+        [
+          4308,
+          14135,
+          0,
+          0,
+          0,
+          98
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2857,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 893499,
+      "recovered_confident_errors": 341382,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "692982",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1172.7514010854065,
+        1230.0907038152218,
+        1200.4262460395694
+      ],
+      "estimated_refine_ms": 0,
+      "escalations": 0,
+      "corrected_pixels": 0,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 142122,
+      "recovered_confident_errors": 0,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "619800",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1539.2890549264848,
+        1516.6139341890812,
+        1524.1035521030426
+      ],
+      "estimated_refine_ms": 70.49957275390625,
+      "escalations": 0,
+      "corrected_pixels": 141228,
+      "damaged_pixels": 59491,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          35567,
+          0,
+          76949,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          28712,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1045,
+          0,
+          29335,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          29111,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 189546,
+      "recovered_confident_errors": 37005,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "940229",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1922.8157098405063,
+        1877.0056921057403,
+        1856.9912509992719
+      ],
+      "estimated_refine_ms": 129.47338008880615,
+      "escalations": 0,
+      "corrected_pixels": 316366,
+      "damaged_pixels": 354275,
+      "valid_pixels": 5992593,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          109153,
+          0,
+          0,
+          0,
+          0,
+          183088
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          18173
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          28
+        ],
+        [
+          5924,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          10986,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          12903
+        ],
+        [
+          7309,
+          0,
+          323077,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 324647,
+      "recovered_confident_errors": 65811,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "143794",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        2387.5254141166806,
+        2392.468054778874,
+        2351.1773920617998
+      ],
+      "estimated_refine_ms": 214.63126754760742,
+      "escalations": 0,
+      "corrected_pixels": 203032,
+      "damaged_pixels": 184777,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          99165,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          103867,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          30268,
+          151572,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2937,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 939825,
+      "recovered_confident_errors": 76442,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "40168",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1378.3235000446439,
+        1348.01241196692,
+        1354.307493660599
+      ],
+      "estimated_refine_ms": 20.70211887359619,
+      "escalations": 0,
+      "corrected_pixels": 12015,
+      "damaged_pixels": 19872,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          64
+        ],
+        [
+          885,
+          0,
+          0,
+          0,
+          0,
+          4078
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          6988,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          19872,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 67711,
+      "recovered_confident_errors": 5604,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "778804",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1116.8031548149884,
+        1156.4447628334165,
+        1266.3629204034805
+      ],
+      "estimated_refine_ms": 0,
+      "escalations": 0,
+      "corrected_pixels": 0,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 104132,
+      "recovered_confident_errors": 0,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "499511",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1339.6739261224866,
+        1274.5806802995503,
+        1295.2114278450608
+      ],
+      "estimated_refine_ms": 19.918981552124023,
+      "escalations": 0,
+      "corrected_pixels": 30881,
+      "damaged_pixels": 2703,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          14091,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3794,
+          0,
+          0,
+          0
+        ],
+        [
+          2010,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          10986,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          1583,
+          64,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          187,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          869,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 126196,
+      "recovered_confident_errors": 9219,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "513968",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1530.55667784065,
+        1545.8072000183165,
+        1497.30718228966
+      ],
+      "estimated_refine_ms": 69.71643543243408,
+      "escalations": 0,
+      "corrected_pixels": 8244,
+      "damaged_pixels": 15466,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          7652,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          592,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          269,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          13917,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1009,
+          271,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 339389,
+      "recovered_confident_errors": 589,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "208495",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1599.990637972951,
+        1626.0585049167275,
+        1604.1880049742758
+      ],
+      "estimated_refine_ms": 81.24220085144043,
+      "escalations": 0,
+      "corrected_pixels": 98031,
+      "damaged_pixels": 63837,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          12117,
+          52,
+          0,
+          0,
+          0
+        ],
+        [
+          45506,
+          0,
+          28479,
+          0,
+          0,
+          0
+        ],
+        [
+          5040,
+          6837,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          220,
+          2887,
+          0,
+          0,
+          0
+        ],
+        [
+          3250,
+          0,
+          4664,
+          0,
+          0,
+          0
+        ],
+        [
+          4798,
+          48018,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 537590,
+      "recovered_confident_errors": 10977,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "541060",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1663.2705829106271,
+        1647.0005023293197,
+        1661.0142779536545
+      ],
+      "estimated_refine_ms": 91.98482894897461,
+      "escalations": 0,
+      "corrected_pixels": 400501,
+      "damaged_pixels": 634579,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          5811,
+          62,
+          0,
+          0,
+          0
+        ],
+        [
+          33405,
+          0,
+          335776,
+          0,
+          0,
+          0
+        ],
+        [
+          11981,
+          431,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          9593,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3097,
+          0,
+          345,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          62,
+          2085,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          194396,
+          434982,
+          0,
+          0
+        ],
+        [
+          948,
+          1056,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1039,
+          8,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 206686,
+      "recovered_confident_errors": 81767,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "202277",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1647.742343135178,
+        1646.0456559434533,
+        1627.9891026206315
+      ],
+      "estimated_refine_ms": 80.45906352996826,
+      "escalations": 0,
+      "corrected_pixels": 251466,
+      "damaged_pixels": 499219,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          32388,
+          153,
+          6668,
+          986
+        ],
+        [
+          0,
+          1234,
+          0,
+          5878,
+          42012,
+          59746
+        ],
+        [
+          0,
+          360,
+          23804,
+          0,
+          6360,
+          71855
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          22,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          86490,
+          0,
+          0,
+          3395
+        ],
+        [
+          0,
+          20581,
+          0,
+          539,
+          0,
+          19053
+        ],
+        [
+          0,
+          7203,
+          290972,
+          0,
+          525,
+          67786
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1162,
+          1513,
+          0
+        ]
+      ],
+      "confident_errors": 111820,
+      "recovered_confident_errors": 220,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "989499",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1199.1236619651318,
+        1206.6991091705859,
+        1206.575449090451
+      ],
+      "estimated_refine_ms": 0,
+      "escalations": 0,
+      "corrected_pixels": 0,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 319042,
+      "recovered_confident_errors": 0,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "495406",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        2319.323474075645,
+        2272.5778659805655,
+        2278.3765885978937
+      ],
+      "estimated_refine_ms": 213.0649929046631,
+      "escalations": 0,
+      "corrected_pixels": 238128,
+      "damaged_pixels": 1002257,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          119786,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2294,
+          0,
+          0,
+          0
+        ],
+        [
+          15,
+          0,
+          0,
+          0,
+          1493,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          777,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          113763,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          106590,
+          0,
+          0,
+          8673
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          18496,
+          0,
+          0,
+          0,
+          66488,
+          799328
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2682,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 136349,
+      "recovered_confident_errors": 18339,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "340798",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1307.104672305286,
+        1296.8843197450042,
+        1324.9682448804379
+      ],
+      "estimated_refine_ms": 29.878472328186035,
+      "escalations": 0,
+      "corrected_pixels": 0,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 506539,
+      "recovered_confident_errors": 0,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "277644",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1285.8704943209887,
+        1232.3407521471381,
+        1231.3786610029638
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 25823,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          13810,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          12003,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          10,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 8999,
+      "recovered_confident_errors": 8999,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "958243",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1506.4800628460944,
+        1461.8970090523362,
+        1490.5300666578114
+      ],
+      "estimated_refine_ms": 62.106356620788574,
+      "escalations": 0,
+      "corrected_pixels": 128107,
+      "damaged_pixels": 21261,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          114333,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          13774,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          2640,
+          0,
+          0,
+          5149
+        ],
+        [
+          0,
+          0,
+          910,
+          0,
+          0,
+          0
+        ],
+        [
+          12562,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 1076718,
+      "recovered_confident_errors": 31316,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "499161",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1731.0176850296557,
+        1681.2260700389743,
+        1697.2972322255373
+      ],
+      "estimated_refine_ms": 101.16118240356445,
+      "escalations": 0,
+      "corrected_pixels": 30241,
+      "damaged_pixels": 282466,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          24266,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          226,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          5281,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          468,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          19724,
+          101,
+          0,
+          0,
+          0
+        ],
+        [
+          326,
+          0,
+          188914,
+          0,
+          0,
+          73401
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 28310,
+      "recovered_confident_errors": 6497,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "983603",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1235.7499948702753,
+        1224.474276881665,
+        1240.127983968705
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 23108,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          15172,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          7400,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          536,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 45435,
+      "recovered_confident_errors": 10497,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "902350",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1258.4354169666767,
+        1289.9012649431825,
+        1243.0217829532921
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 25329,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          9758,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          15571,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 4170,
+      "recovered_confident_errors": 4170,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "280861",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1457.3882948607206,
+        1467.914738226682,
+        1448.7759419716895
+      ],
+      "estimated_refine_ms": 51.363728523254395,
+      "escalations": 0,
+      "corrected_pixels": 291174,
+      "damaged_pixels": 347219,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2533,
+          0,
+          11248,
+          277393,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          802,
+          0,
+          0,
+          0
+        ],
+        [
+          945,
+          0,
+          220331,
+          50071,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          75070,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 208797,
+      "recovered_confident_errors": 134247,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "10452",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1935.4961630888283,
+        1868.9017090946436,
+        1881.464181933552
+      ],
+      "estimated_refine_ms": 131.0396547317505,
+      "escalations": 0,
+      "corrected_pixels": 482278,
+      "damaged_pixels": 373108,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          481198,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1080,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          3187,
+          227886,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          114394,
+          0,
+          0,
+          0
+        ],
+        [
+          27641,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 582523,
+      "recovered_confident_errors": 138175,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "416794",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1603.5948060452938,
+        1484.7070001997054,
+        1515.6989912502468
+      ],
+      "estimated_refine_ms": 71.28271007537842,
+      "escalations": 0,
+      "corrected_pixels": 74590,
+      "damaged_pixels": 87118,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          6105,
+          0,
+          0,
+          0
+        ],
+        [
+          2413,
+          0,
+          52681,
+          0,
+          0,
+          0
+        ],
+        [
+          13080,
+          311,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          31143,
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          0,
+          52290,
+          0,
+          0,
+          0
+        ],
+        [
+          1294,
+          2384,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 819457,
+      "recovered_confident_errors": 20888,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "763892",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1298.6130700446665,
+        1291.5384727530181,
+        1288.8259338214993
+      ],
+      "estimated_refine_ms": 19.918981552124023,
+      "escalations": 0,
+      "corrected_pixels": 68719,
+      "damaged_pixels": 54203,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          16010,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          43446,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          9250,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          54203,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 17729,
+      "recovered_confident_errors": 12721,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "609234",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1254.8920749686658,
+        1310.557614080608,
+        1243.4317409060895
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 25747,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          11829,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          199,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          13719,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 179700,
+      "recovered_confident_errors": 6712,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "343425",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1314.0687281265855,
+        1273.982583079487,
+        1265.259884763509
+      ],
+      "estimated_refine_ms": 19.918981552124023,
+      "escalations": 0,
+      "corrected_pixels": 35945,
+      "damaged_pixels": 2403,
+      "valid_pixels": 5992702,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          15157,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          10190,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          210,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          10388,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1841,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          562,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 196209,
+      "recovered_confident_errors": 9245,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "584865",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1504.810268059373,
+        1488.7449466623366,
+        1482.7191857621074
+      ],
+      "estimated_refine_ms": 60.54008197784424,
+      "escalations": 0,
+      "corrected_pixels": 24026,
+      "damaged_pixels": 12688,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          9246,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2947,
+          0,
+          0,
+          0,
+          530,
+          0
+        ],
+        [
+          4,
+          4356,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          6943,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          22,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1182,
+          9663,
+          0,
+          0,
+          96,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1725,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 111667,
+      "recovered_confident_errors": 3839,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "987381",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1225.556617602706,
+        1238.2236309349537,
+        1217.6797091960907
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 16944,
+      "damaged_pixels": 120,
+      "valid_pixels": 5957785,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          7122,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          6881,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2897,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          44,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          120,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 405954,
+      "recovered_confident_errors": 1711,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "908837",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1288.8635490089655,
+        1287.5821273773909,
+        1295.2364180237055
+      ],
+      "estimated_refine_ms": 19.918981552124023,
+      "escalations": 0,
+      "corrected_pixels": 4293,
+      "damaged_pixels": 120443,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1806,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2487,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3723,
+          116720,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 13403,
+      "recovered_confident_errors": 845,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "841404",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1259.94025869295,
+        1252.8311279602349,
+        1234.238819219172
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 26319,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992644,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          12435,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          11900,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1984,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 207508,
+      "recovered_confident_errors": 7781,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "923618",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1285.0999389775097,
+        1242.729193996638,
+        1265.2127272449434
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 25254,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          16701,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1121,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          7432,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 26518,
+      "recovered_confident_errors": 10129,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "326238",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1377.3537152446806,
+        1366.4987357333302,
+        1352.100710850209
+      ],
+      "estimated_refine_ms": 29.878472328186035,
+      "escalations": 0,
+      "corrected_pixels": 28438,
+      "damaged_pixels": 65758,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          15870,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3386,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          44,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8803,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          335,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          17320,
+          0,
+          0,
+          0,
+          1439
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          46999
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 38520,
+      "recovered_confident_errors": 9139,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "726265",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1645.849690772593,
+        1700.6341791711748,
+        1687.0300420559943
+      ],
+      "estimated_refine_ms": 90.41855430603027,
+      "escalations": 0,
+      "corrected_pixels": 242982,
+      "damaged_pixels": 69823,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          61,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          74868,
+          0,
+          13194,
+          0,
+          0,
+          0
+        ],
+        [
+          34988,
+          66711,
+          0,
+          0,
+          0,
+          53160
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          24,
+          236,
+          0,
+          0,
+          0
+        ],
+        [
+          19554,
+          0,
+          25586,
+          0,
+          0,
+          0
+        ],
+        [
+          1132,
+          21753,
+          0,
+          0,
+          1,
+          1537
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 261522,
+      "recovered_confident_errors": 17202,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "129297",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1350.325183942914,
+        1333.7874650023878,
+        1360.5086910538375
+      ],
+      "estimated_refine_ms": 29.878472328186035,
+      "escalations": 0,
+      "corrected_pixels": 81861,
+      "damaged_pixels": 11395,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          13175,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          55681,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          227,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          12075,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          450,
+          253,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          9991,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1404,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 40884,
+      "recovered_confident_errors": 12484,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "77669",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        2290.168921928853,
+        2278.3746519126,
+        2287.91122790426
+      ],
+      "estimated_refine_ms": 199.18981552124023,
+      "escalations": 0,
+      "corrected_pixels": 397918,
+      "damaged_pixels": 158991,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          14000,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          228771,
+          0,
+          69727,
+          0,
+          7946,
+          0
+        ],
+        [
+          4860,
+          26593,
+          0,
+          0,
+          39024,
+          0
+        ],
+        [
+          0,
+          3380,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3617,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          27,
+          0,
+          25,
+          0
+        ],
+        [
+          3707,
+          0,
+          93289,
+          0,
+          2636,
+          0
+        ],
+        [
+          1842,
+          45511,
+          0,
+          0,
+          11485,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          6,
+          463,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 253337,
+      "recovered_confident_errors": 48140,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "655313",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1257.9136132262647,
+        1228.2172911800444,
+        1206.1530291102827
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 4685,
+      "damaged_pixels": 14622,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          1932,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2753,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          14622,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 199598,
+      "recovered_confident_errors": 0,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "351727",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1220.2638001181185,
+        1181.3776353374124,
+        1211.711224168539
+      ],
+      "estimated_refine_ms": 0,
+      "escalations": 0,
+      "corrected_pixels": 0,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 843534,
+      "recovered_confident_errors": 0,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "343215",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        2034.3002532608807,
+        2025.9602381847799,
+        2021.7326506972313
+      ],
+      "estimated_refine_ms": 160.13498973846436,
+      "escalations": 0,
+      "corrected_pixels": 264445,
+      "damaged_pixels": 171981,
+      "valid_pixels": 5992444,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          176,
+          138,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          181740,
+          0,
+          38866,
+          0
+        ],
+        [
+          2,
+          42777,
+          0,
+          0,
+          746,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          1948,
+          131,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          153076,
+          0,
+          119,
+          0
+        ],
+        [
+          0,
+          11670,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          135,
+          4902,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 548335,
+      "recovered_confident_errors": 26218,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "204494",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1563.063106033951,
+        1572.7381510660052,
+        1555.192160885781
+      ],
+      "estimated_refine_ms": 69.71643543243408,
+      "escalations": 0,
+      "corrected_pixels": 178508,
+      "damaged_pixels": 91261,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          7892,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          10869,
+          0,
+          34663,
+          118219,
+          0,
+          0
+        ],
+        [
+          0,
+          489,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          6376,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          2068,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          227,
+          0,
+          0,
+          76700,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1794,
+          0,
+          0,
+          10472
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 2127334,
+      "recovered_confident_errors": 41126,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "133209",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1179.7429150901735,
+        1173.7799923866987,
+        1170.7991599105299
+      ],
+      "estimated_refine_ms": 0,
+      "escalations": 0,
+      "corrected_pixels": 0,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 751731,
+      "recovered_confident_errors": 0,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "13415",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        2454.052980057895,
+        2449.722311925143,
+        2449.106947053224
+      ],
+      "estimated_refine_ms": 239.02777862548828,
+      "escalations": 0,
+      "corrected_pixels": 995192,
+      "damaged_pixels": 173829,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          90,
+          992725,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2377,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          173829,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 512484,
+      "recovered_confident_errors": 260119,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "586222",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        2441.9022179208696,
+        2431.4834089018404,
+        2451.2209380045533
+      ],
+      "estimated_refine_ms": 239.02777862548828,
+      "escalations": 0,
+      "corrected_pixels": 708526,
+      "damaged_pixels": 114783,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          708526,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          411,
+          88015,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          549,
+          25808,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 153156,
+      "recovered_confident_errors": 88259,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "765792",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1868.5286790132523,
+        1855.1049642264843,
+        1833.353073336184
+      ],
+      "estimated_refine_ms": 119.51388931274414,
+      "escalations": 0,
+      "corrected_pixels": 164930,
+      "damaged_pixels": 143537,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          10793,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          125207,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          17791,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          11139,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          14651,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          128886,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 10415,
+      "recovered_confident_errors": 2461,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "195769",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1261.4030432887375,
+        1263.6607619933784,
+        1251.5850011259317
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 26114,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          11584,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          21,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          14509,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 85972,
+      "recovered_confident_errors": 5852,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "705728",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        2295.9067379124463,
+        2300.4566179588437,
+        2244.608405046165
+      ],
+      "estimated_refine_ms": 199.18981552124023,
+      "escalations": 0,
+      "corrected_pixels": 312550,
+      "damaged_pixels": 181611,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          38,
+          1378,
+          0,
+          0,
+          0
+        ],
+        [
+          242822,
+          0,
+          34780,
+          0,
+          0,
+          0
+        ],
+        [
+          15084,
+          18448,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          58,
+          3261,
+          0,
+          0,
+          0
+        ],
+        [
+          35957,
+          0,
+          71056,
+          0,
+          0,
+          0
+        ],
+        [
+          5096,
+          66183,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 177264,
+      "recovered_confident_errors": 21531,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "949235",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1571.7474920675159,
+        1564.7515230812132,
+        1533.6702866479754
+      ],
+      "estimated_refine_ms": 69.71643543243408,
+      "escalations": 0,
+      "corrected_pixels": 85676,
+      "damaged_pixels": 240603,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          81433
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          134
+        ],
+        [
+          0,
+          4109,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          181154
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          18397
+        ],
+        [
+          0,
+          41052,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 266898,
+      "recovered_confident_errors": 45506,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "875409",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1214.1491500660777,
+        1200.3323240205646,
+        1215.4493811540306
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 25333,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          18190,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          5595,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1548,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 15052,
+      "recovered_confident_errors": 12091,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "210473",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        2211.375707760453,
+        2211.9566057808697,
+        2242.3200639896095
+      ],
+      "estimated_refine_ms": 201.53922748565674,
+      "escalations": 0,
+      "corrected_pixels": 510166,
+      "damaged_pixels": 651350,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          264745,
+          90416,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          56641,
+          0,
+          0,
+          98364
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          100459,
+          226076,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          161035,
+          0,
+          0,
+          163780
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 954256,
+      "recovered_confident_errors": 218766,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "946386",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1615.4555077664554,
+        1616.6928699240088,
+        1610.2158837020397
+      ],
+      "estimated_refine_ms": 79.6759262084961,
+      "escalations": 0,
+      "corrected_pixels": 183619,
+      "damaged_pixels": 125289,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          14022,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          21087,
+          0,
+          132800,
+          0,
+          266,
+          0
+        ],
+        [
+          3724,
+          2214,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8181,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1325,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          42727,
+          0,
+          67229,
+          0
+        ],
+        [
+          69,
+          15180,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          84,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 78803,
+      "recovered_confident_errors": 19353,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "263576",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1306.757131125778,
+        1310.0482714362442,
+        1301.237271167338
+      ],
+      "estimated_refine_ms": 19.918981552124023,
+      "escalations": 0,
+      "corrected_pixels": 44999,
+      "damaged_pixels": 27324,
+      "valid_pixels": 5992622,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          42183,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2816,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          5910,
+          0,
+          2262,
+          0
+        ],
+        [
+          5079,
+          0,
+          3022,
+          0,
+          0,
+          0
+        ],
+        [
+          9790,
+          0,
+          0,
+          0,
+          1261,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 272322,
+      "recovered_confident_errors": 2717,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "345494",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1290.4229839332402,
+        1255.7833902537823,
+        1239.6244006231427
+      ],
+      "estimated_refine_ms": 10.74262809753418,
+      "escalations": 0,
+      "corrected_pixels": 18666,
+      "damaged_pixels": 14725,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          130,
+          0,
+          27,
+          0
+        ],
+        [
+          0,
+          14294,
+          0,
+          0,
+          4215,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          5685,
+          0,
+          0,
+          9023,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 705153,
+      "recovered_confident_errors": 5096,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "373186",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1297.5699198432267,
+        1251.7627840861678,
+        1249.4711340405047
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 26013,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          14220,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          670,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          11123,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 14518,
+      "recovered_confident_errors": 8476,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "413779",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1268.2141535915434,
+        1300.3558721393347,
+        1235.949917230755
+      ],
+      "estimated_refine_ms": 19.918981552124023,
+      "escalations": 0,
+      "corrected_pixels": 56174,
+      "damaged_pixels": 0,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          24189,
+          31985
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 80633,
+      "recovered_confident_errors": 53255,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "949559",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1350.8826941251755,
+        1382.882877252996,
+        1366.227168124169
+      ],
+      "estimated_refine_ms": 41.40423774719238,
+      "escalations": 0,
+      "corrected_pixels": 24515,
+      "damaged_pixels": 2655,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          4303,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          109,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          19610,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          493,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          1986,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          649,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          20,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 454125,
+      "recovered_confident_errors": 712,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "127660",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1207.3627579957247,
+        1215.995787177235,
+        1213.530991692096
+      ],
+      "estimated_refine_ms": 9.959490776062012,
+      "escalations": 0,
+      "corrected_pixels": 25351,
+      "damaged_pixels": 503,
+      "valid_pixels": 5992566,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          11694,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          13651,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          6,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          503,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 68897,
+      "recovered_confident_errors": 6470,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "221278",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1524.0683970041573,
+        1494.4849340245128,
+        1525.4420940764248
+      ],
+      "estimated_refine_ms": 70.49957275390625,
+      "escalations": 0,
+      "corrected_pixels": 6650,
+      "damaged_pixels": 20559,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          6650,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          20559,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 114290,
+      "recovered_confident_errors": 0,
+      "estimated_refine_budget_overrun": false
+    },
+    {
+      "id": "829962",
+      "image_hw": [
+        2448,
+        2448
+      ],
+      "latency_ms": [
+        1727.6572091504931,
+        1719.4795906543732,
+        1741.300347726792
+      ],
+      "estimated_refine_ms": 117.38577175140381,
+      "escalations": 0,
+      "corrected_pixels": 590233,
+      "damaged_pixels": 199165,
+      "valid_pixels": 5992704,
+      "correction_pairs_predicted_to_true": [
+        [
+          0,
+          12,
+          0,
+          0,
+          0,
+          1936
+        ],
+        [
+          6044,
+          0,
+          0,
+          0,
+          0,
+          569088
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2157,
+          10996,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "damage_pairs_true_to_predicted": [
+        [
+          0,
+          1195,
+          0,
+          0,
+          0,
+          4339
+        ],
+        [
+          41,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          237,
+          193353,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "confident_errors": 235845,
+      "recovered_confident_errors": 17795,
+      "estimated_refine_budget_overrun": false
+    }
+  ]
+}
