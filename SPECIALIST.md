@@ -1,5 +1,7 @@
 # Coarse-guided class-specialist research plan
 
+Copy-paste terminal commands and standalone systemd background training: [RUN_SPECIALIST.md](RUN_SPECIALIST.md).
+
 ## 1. Scope and decision
 
 The specialist supplies evidence to the **selector**, never replacement six-class

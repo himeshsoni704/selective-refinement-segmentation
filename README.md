@@ -1,5 +1,7 @@
 # Agriculture–rangeland specialist experiment
 
+Copy-paste terminal commands and standalone systemd background training: [RUN_SPECIALIST.md](RUN_SPECIALIST.md).
+
 See [SPECIALIST.md](SPECIALIST.md) for the independent multi-scale ResNet/EfficientNet experiment, training commands, evaluation protocol and staged selector-integration plan. This experiment does not change final segmentation or routing.
 
 # Research extension
