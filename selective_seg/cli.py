@@ -45,7 +45,7 @@ def save_prediction(mask, details, prefix):
 
 def main():
     parser = argparse.ArgumentParser(description="Train and evaluate selective refinement")
-    parser.add_argument("command",choices=["validate-data","train-coarse","train-low","train-high",
+    parser.add_argument("command",choices=["validate-data","train-specialist","evaluate-specialist","train-coarse","train-low","train-high",
                                           "cache","train-selector","train-scout","train-acceptance","train-escalation","calibrate","predict","evaluate","benchmark","analyze-cache"])
     parser.add_argument("--config",required=True)
     parser.add_argument("--manifest")
@@ -56,6 +56,7 @@ def main():
     parser.add_argument("--resume",action="store_true")
     parser.add_argument("--split",choices=["selector","val","test"],default="selector")
     parser.add_argument("--output")
+    parser.add_argument("--coarse-run", help="Optional frozen coarse baseline for specialist evaluation")
     parser.add_argument("--train-cache")
     parser.add_argument("--val-cache")
     parser.add_argument("--calibration")
@@ -72,11 +73,20 @@ def main():
     run.mkdir(parents=True,exist_ok=True)
     if args.device.startswith("cuda") and not torch.cuda.is_available():
         parser.error("CUDA is unavailable; use --device cpu only for development/smoke tests")
-    if args.command in {"validate-data","train-coarse","train-low","train-high","train-scout","train-acceptance","cache","evaluate","benchmark"}:
+    if args.command in {"validate-data","train-specialist","evaluate-specialist","train-coarse","train-low","train-high","train-scout","train-acceptance","cache","evaluate","benchmark"}:
         if not args.manifest:
             parser.error("This command requires --manifest")
         records = read_manifest(args.manifest)
-    if args.command == "validate-data":
+    if args.command == "train-specialist":
+        if args.resume:
+            parser.error("Specialist resume is not implemented; use a fresh run directory")
+        from .specialist import train_specialist
+        train_specialist(cfg, records, run, args.device, args.steps)
+    elif args.command == "evaluate-specialist":
+        from .specialist import evaluate_specialist
+        evaluate_specialist(cfg, records, run, args.split, args.device,
+                            args.output or run/f"specialist_{args.split}.json", args.coarse_run)
+    elif args.command == "validate-data":
         for r in records:
             image, mask = read_sample(r,cfg)
             print(r["id"],r["split"],list(image.shape),torch.unique(mask).tolist())

@@ -1,3 +1,7 @@
+# Agriculture–rangeland specialist experiment
+
+See [SPECIALIST.md](SPECIALIST.md) for the independent multi-scale ResNet/EfficientNet experiment, training commands, evaluation protocol and staged selector-integration plan. This experiment does not change final segmentation or routing.
+
 # Research extension
 
 See [RESEARCH.md](RESEARCH.md) for the optional core RGB modules, leakage-safe training order, benchmark protocol, ablation presets, compatibility and limitations. The original configuration remains the baseline.
