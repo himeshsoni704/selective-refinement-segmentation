@@ -48,7 +48,7 @@ def profile_prediction(pipeline,image,mode,operations):
 
 
 def evaluate(pipeline,records,destination,mode='selective',warmup=20,passes=3,
-             profile_stages=False,profile_operations=False,save_masks=False):
+             profile_stages=False,profile_operations=False,save_masks=False,probability_metrics=False):
     if not records or warmup < 0 or passes < 1:
         raise ValueError('Need records, nonnegative warmup and positive passes')
     destination = Path(destination)
@@ -57,6 +57,8 @@ def evaluate(pipeline,records,destination,mode='selective',warmup=20,passes=3,
     for i in range(warmup):
         pipeline.predict(read_image(records[i%len(records)]['image'],cfg),mode,diagnostics=False)
     cm = torch.zeros(cfg['classes'],cfg['classes'],dtype=torch.long)
+    from .hybrid_metrics import Metrics
+    calibration = Metrics(cfg['classes'], ignore=cfg['ignore_index']) if probability_metrics else None
     times,rows,operation_counts = [],[],[]
     totals = {'corrected_pixels':0,'damaged_pixels':0,'valid_pixels':0,
               'confident_errors':0,'recovered_confident_errors':0}
@@ -77,7 +79,11 @@ def evaluate(pipeline,records,destination,mode='selective',warmup=20,passes=3,
                 peak_allocated = max(peak_allocated,torch.cuda.max_memory_allocated(pipeline.device))
                 peak_reserved = max(peak_reserved,torch.cuda.max_memory_reserved(pipeline.device))
         times.append(measurements)
-        cm += confusion_matrix(mask,truth,cfg['classes'],cfg['ignore_index'])
+        image_cm = confusion_matrix(mask,truth,cfg['classes'],cfg['ignore_index'])
+        cm += image_cm
+        if calibration is not None:
+            _, probability_detail = pipeline.predict(image, mode, diagnostics=False, return_probabilities=True)
+            calibration.add(probability_detail['probabilities'], truth)
         # Explicitly outside measured inference. No masks enter pipeline.predict().
         pc,_ = pipeline.overview(image)
         diag = correction_diagnostics(pc.argmax(1)[0],mask,truth,cfg,pc.max(1).values[0])
@@ -89,7 +95,7 @@ def evaluate(pipeline,records,destination,mode='selective',warmup=20,passes=3,
             actions[['skip','low','high'][action]] += 1
         for key in calls:
             calls[key] += detail['refinement_calls'][key]
-        row = {'id':record['id'],'image_hw':list(image.shape[-2:]),'latency_ms':measurements,
+        row = {'id':record['id'],'confusion':image_cm.tolist(),'image_hw':list(image.shape[-2:]),'latency_ms':measurements,
                'estimated_refine_ms':detail['estimated_refine_ms'], 'escalations':detail['escalations'],**diag}
         budget = cfg['routing'].get('max_refine_ms')
         row['estimated_refine_budget_overrun'] = budget is not None and detail['estimated_refine_ms'] > budget+1e-6
@@ -129,6 +135,9 @@ def evaluate(pipeline,records,destination,mode='selective',warmup=20,passes=3,
               'timing_includes':'decoded CPU input to completed CPU mask, CPU work, transfers, all enabled inference modules',
               'budget_scope':'estimated refinement only; profiled comparisons include profiling overhead; not total-latency guarantees',
               'images':rows}
+    if calibration is not None:
+        report.update(calibration.report())
+        report['pixel_accuracy'] = report['accuracy']
     (destination/'metrics.json').write_text(json.dumps(report,indent=2))
     print(json.dumps({k:v for k,v in report.items() if k not in {'images','config','confusion','provenance'}},indent=2),flush=True)
     return report

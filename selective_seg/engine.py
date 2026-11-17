@@ -154,7 +154,7 @@ class Pipeline:
         return torch.where((gate >= .5)[:,None], refined, coarse)
 
     @torch.no_grad()
-    def predict(self, image, mode='selective', diagnostics=True, profile=False):
+    def predict(self, image, mode='selective', diagnostics=True, profile=False, return_probabilities=False):
         """Decoded CPU tensor -> CPU mask. Diagnostics are built AFTER headline timing.
 
         profile=True introduces stage synchronizations and must not supply headline timing.
@@ -182,6 +182,7 @@ class Pipeline:
         t = begin()
         output = pc.argmax(1)[0].clone()
         end('assembly', t)
+        probability_updates = [] if return_probabilities else None
         n = len(grid)
         support = torch.tensor([h*w for _,_,h,w in grid], device=self.device)
         pred = q = u = None
@@ -246,6 +247,8 @@ class Pipeline:
             t = begin()
             output[y:y+h,x:x+w] = current.argmax(1)[0]
             end('assembly', t)
+            if probability_updates is not None:
+                probability_updates.append((tile, current))
         sync(self.device)
         elapsed = (time.perf_counter()-started)*1000
         records = []
@@ -261,7 +264,12 @@ class Pipeline:
                                expected_fp_counts_coarse_low_high=(pred['fp'][i]*tile[2]*tile[3]).cpu().tolist(),
                                expected_fn_counts_coarse_low_high=(pred['fn'][i]*tile[2]*tile[3]).cpu().tolist())
                 records.append(rec)
-        return output, {'end_to_end_ms':elapsed, 'tiles':records, 'stage_ms':stages,
+        extra = {}
+        if probability_updates is not None:
+            for (y, x, h, w), current in probability_updates:
+                pc[..., y:y+h, x:x+w] = current
+            extra["probabilities"] = pc[0]
+        return output, {**extra, 'end_to_end_ms':elapsed, 'tiles':records, 'stage_ms':stages,
                         'profiled':profile, 'estimated_refine_ms':spent,
                         'initial_actions':initial.tolist(), 'final_actions':actions.tolist(),
                         'escalations':int(escalated.sum()),

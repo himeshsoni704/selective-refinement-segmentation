@@ -67,6 +67,7 @@ def main():
     parser.add_argument('--profile-stages',action='store_true')
     parser.add_argument('--profile-operations',action='store_true')
     parser.add_argument('--save-masks',action='store_true')
+    parser.add_argument('--probability-metrics',action='store_true')
     args = parser.parse_args()
     cfg = load_config(args.config)
     run = Path(args.run)
@@ -132,7 +133,7 @@ def main():
                 parser.error("Need test records, passes >=1 and warmup >=0")
             from .benchmark import evaluate
             evaluate(pipeline,selected,args.output or run/('test_results_'+args.mode),args.mode,
-                     args.warmup,args.passes,args.profile_stages,args.profile_operations,args.save_masks)
+                     args.warmup,args.passes,args.profile_stages,args.profile_operations,args.save_masks,args.probability_metrics)
 
 
 if __name__ == '__main__':
