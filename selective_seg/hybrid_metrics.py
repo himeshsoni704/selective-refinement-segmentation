@@ -15,15 +15,27 @@ class Metrics:
         self.nll = self.brier = 0.
 
     def add(self, probability, truth):
-        probability = probability.cpu()
+        probability = probability.detach().float().cpu()
+        truth = truth.cpu()
+        if probability.shape != (self.classes, *truth.shape):
+            raise ValueError("Probability and truth dimensions differ")
+        if not torch.isfinite(probability).all():
+            raise ValueError("Nonfinite probabilities while computing calibration metrics")
+        if (probability < 0).any() or (probability > 1).any() or not torch.allclose(
+                probability.sum(0), torch.ones_like(probability[0]), atol=1e-4, rtol=1e-4):
+            raise ValueError("Probabilities must be normalized and in [0,1]")
+        valid = (truth >= 0) & (truth < self.classes) & (truth != self.ignore)
+        if not valid.any():
+            return torch.zeros_like(self.cm).tolist()
         pred = probability.argmax(0)
         cm = confusion_matrix(pred, truth, self.classes, self.ignore)
         self.cm += cm
-        valid = (truth >= 0) & (truth < self.classes) & (truth != self.ignore)
         p = probability[:, valid]
         y = truth[valid]
         correct = (pred[valid] == y).double()
         confidence = p.max(0).values
+        if not torch.isfinite(confidence).all():
+            raise ValueError("Nonfinite probabilities while computing calibration metrics")
         bins = (confidence * self.bins).long().clamp_max(self.bins - 1)
         self.bin_count += torch.bincount(bins, minlength=self.bins)
         self.bin_correct.scatter_add_(0, bins, correct)

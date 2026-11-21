@@ -6,9 +6,9 @@ from torch import nn
 from torch.nn import functional as F
 
 from .geometry import center_prediction, crop_context
-from .engine import amp
 from .hybrid_backbone import align
 from .specialist import settings
+from .precision import specialist_amp, require_finite
 
 EPS = 1e-7
 
@@ -112,11 +112,13 @@ def exit_score(probability, supported, gain, policy):
 def specialist_maps(model, image, tile, cfg, device, supported, calibration=None, policy="full"):
     crop = crop_input(image, tile, cfg, device)
     calibration = calibration or {"temperatures": [1., 1., 1.]}
-    with amp(device):
+    with specialist_amp(device, cfg):
         for index, (logits, gain, disagreement) in enumerate(model.packets(crop, policy != "full")):
             depth = 2 if gain is None else index
             logits = center_prediction(logits.float(), tile, cfg)
+            require_finite(logits, "specialist logits")
             probability = (logits / calibration["temperatures"][depth]).softmax(1)
+            require_finite(probability, "specialist probabilities")
             fixed_depth = {"shallow": 0, "intermediate": 1}.get(policy)
             should_exit = depth == 2 or fixed_depth == depth
             if not should_exit and fixed_depth is None:

@@ -1,0 +1,16 @@
+# Optional persistent unit. Replace absolute paths for another machine.
+# The launch script uses a transient user unit instead; it survives logout when
+# lingering is enabled, but does not restart experiments on reboot.
+[Unit]
+Description=Frozen-checkpoint segmentation diagnostic experiments
+
+[Service]
+Type=exec
+WorkingDirectory=/home/himesh/Downloads/selective-refinement-segmentation-main
+Environment=PYTHONUNBUFFERED=1
+Environment=OMP_NUM_THREADS=4
+Environment=MKL_NUM_THREADS=4
+ExecStart=/home/himesh/Downloads/.venv/bin/python -u -m selective_seg.diagnostic_suite --output runs/diagnostics-20261121-gpu --device cuda --threads 4 --passes 3
+Restart=no
+StandardOutput=append:/home/himesh/Downloads/selective-refinement-segmentation-main/runs/diagnostics-20261121-gpu/service.log
+StandardError=append:/home/himesh/Downloads/selective-refinement-segmentation-main/runs/diagnostics-20261121-gpu/service.log

@@ -173,6 +173,10 @@ def cache(pipeline, records, fingerprints, destination):
         base_score = tensor_miou(coarse_cm.double())
         gains = torch.zeros(len(grid), len(pipeline.actions))
         costs = torch.zeros_like(gains)
+        action_counts = torch.zeros(len(grid), len(pipeline.actions), classes, classes, dtype=torch.long)
+        original_counts = torch.zeros(len(grid), classes, classes, dtype=torch.long)
+        corrections = torch.zeros(len(grid), len(pipeline.actions), classes, dtype=torch.long)
+        damage = torch.zeros_like(corrections)
         supervised = torch.zeros(len(grid), dtype=torch.bool)
         for index in sorted(chosen):
             tile = grid[index]
@@ -181,6 +185,7 @@ def cache(pipeline, records, fingerprints, destination):
                 continue
             supervised[index] = True
             original = confusion_matrix(area(coarse, tile), target, classes, ignore)
+            original_counts[index] = original
             for a, action in enumerate(pipeline.actions):
                 sync(pipeline.device)
                 start = time.perf_counter()
@@ -188,9 +193,18 @@ def cache(pipeline, records, fingerprints, destination):
                 sync(pipeline.device)
                 costs[index, a] = 1000 * (time.perf_counter()-start)
                 revised = confusion_matrix(proposal, target, classes, ignore)
+                action_counts[index, a] = revised
+                valid = (target != ignore) & (target >= 0) & (target < classes)
+                was_right = area(coarse, tile) == target
+                now_right = proposal == target
+                corrections[index, a] = torch.bincount(target[valid & ~was_right & now_right], minlength=classes)
+                damage[index, a] = torch.bincount(target[valid & was_right & ~now_right], minlength=classes)
                 gains[index, a] = tensor_miou((coarse_cm - original + revised).double()) - base_score
         rows.append({"id": record["id"], "shape": pipeline.shape(grid), "z": z,
-                     "supervised": supervised, "gains": gains, "costs": costs})
+                     "supervised": supervised, "gains": gains, "costs": costs,
+                     "coarse_counts": coarse_cm, "tile_coarse_counts": original_counts,
+                     "action_counts": action_counts, "corrected_by_class": corrections,
+                     "damaged_by_class": damage})
         print(json.dumps({"image": record["id"], "candidates": len(chosen)}), flush=True)
     save_new(destination, {"config": cfg, "key": config_key(cfg), "provenance": fingerprints,
                            "paths": [r["image"] for r in records], "rows": rows})

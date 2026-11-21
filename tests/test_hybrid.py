@@ -118,6 +118,12 @@ def test_cli_train_calibrate_route_and_pair(experiment, tmp_path, monkeypatch):
     assert sum(json.loads((root/'binary'/'metrics.json').read_text())['exit_counts']) == 4
     for split in ('selector','val'):
         run('cache',f'caches/{split}',*shared,'--split',split)
+        ledger = torch.load(root/f'caches/{split}/cache.pt', weights_only=True)
+        for row in ledger['rows']:
+            active = row['supervised']
+            delta_tp = (row['action_counts'][active].diagonal(dim1=-2, dim2=-1)
+                        - row['tile_coarse_counts'][active, None].diagonal(dim1=-2, dim2=-1))
+            assert torch.equal(delta_tp, row['corrected_by_class'][active]-row['damaged_by_class'][active])
     run('train-selector','selector','--selector-run',root/'caches','--epochs',2,*shared)
     run('evaluate','evaluation',*shared,'--selector-run',root/'selector','--split','test',
         '--all-budgets','--save-maps')

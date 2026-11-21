@@ -10,13 +10,14 @@ from torch import nn
 from torch.nn import functional as F
 
 from .data import read_sample
-from .engine import amp, fingerprint, sync
+from .engine import fingerprint, sync
 from .geometry import center_prediction, tiles
 from .hybrid_backbone import HybridSpecialist
 from .hybrid_evidence import area, crop_input, exit_score, pair_ids, specialist_maps
 from .hybrid_metrics import Metrics
 from .specialist import binary_target, counts_metrics, masked_loss, settings, signature as base_signature
 from .training import seed_all
+from .precision import specialist_amp, specialist_precision, require_finite
 
 
 def write_json(path, value):
@@ -115,8 +116,9 @@ def validate_model(model, cfg, records, device):
         image, truth = read_sample(record, cfg)
         for tile in tiles(*truth.shape, cfg["tile_size"]):
             crop = crop_input(image, tile, cfg, device)
-            with amp(device):
+            with specialist_amp(device, cfg):
                 logits = center_prediction(model(crop).float(), tile, cfg)
+            require_finite(logits, "specialist validation logits")
             metrics.add(logits.softmax(1)[0], binary_target(area(truth, tile), cfg))
     return metrics.report()
 
@@ -141,7 +143,7 @@ def train(cfg, records, destination, device, steps):
     weights = weights.clamp(max=s["max_class_weight"]).to(device)
     model = HybridSpecialist(cfg, initialize_pretrained=True).to(device)
     optimizer = torch.optim.AdamW((p for p in model.parameters() if p.requires_grad), lr=s["lr"])
-    scaler = torch.amp.GradScaler("cuda", enabled=device.type == "cuda")
+    scaler = torch.amp.GradScaler("cuda", enabled=specialist_precision(device, cfg) == "fp16")
     best = -1
     total = s["steps"] if steps is None else steps
     for step in range(1, total + 1):
@@ -150,13 +152,13 @@ def train(cfg, records, destination, device, steps):
         image, truth = read_sample(record, cfg)
         target = binary_target(area(truth, tile), cfg)[None].to(device)
         optimizer.zero_grad(set_to_none=True)
-        with amp(device):
+        with specialist_amp(device, cfg):
             loss = training_loss(model, crop_input(image, tile, cfg, device), target, tile, cfg, weights)
         if not torch.isfinite(loss):
             raise RuntimeError("Nonfinite specialist loss")
         scaler.scale(loss).backward()
         scaler.unscale_(optimizer)
-        nn.utils.clip_grad_norm_(model.parameters(), 1.)
+        nn.utils.clip_grad_norm_(model.parameters(), 1., error_if_nonfinite=True)
         scaler.step(optimizer)
         scaler.update()
         if step == 1 or step % 100 == 0:
@@ -199,12 +201,13 @@ def calibrate(model, cfg, records, device, coarse):
                 continue
             support = prediction_support(area(pc, tile), cfg)
             crop = crop_input(image, tile, cfg, device)
-            with amp(device):
+            with specialist_amp(device, cfg):
                 packets = list(model.packets(crop))
             cms, confidences, benefits = [], [], []
             for index, (logits, gain, _) in enumerate(packets):
                 depth = index if gain is not None else 2
                 logits = center_prediction(logits.float(), tile, cfg).cpu()
+                require_finite(logits, "specialist calibration logits")
                 sample = logits[0, :, valid].T
                 stride = max(1, math.ceil(len(sample) / 128))
                 targets = target[valid][::stride]

@@ -9,6 +9,7 @@ from .geometry import resize_long, tiles, crop_context, center_prediction, tile_
 from .routing import choose_actions
 from .research import settings, signature, descriptor_dim
 from .objectives import utility
+from .precision import require_finite
 
 
 def amp(device):
@@ -111,6 +112,8 @@ class Pipeline:
         small = resize_long(image, self.cfg["coarse_size"]).to(self.device)
         with amp(self.device):
             result = self.coarse(small)
+        require_finite(result["logits"], "coarse logits")
+        require_finite(result["features"], "coarse features")
         # Match segmentation convention: interpolate logits, then softmax/argmax.
         logits = F.interpolate(result["logits"].float().cpu(), image.shape[-2:],
                                mode="bilinear", align_corners=False)
@@ -134,6 +137,7 @@ class Pipeline:
             raise ValueError("refine action must be 1 or 2")
         with amp(self.device):
             out = model(crop.to(self.device), context.to(self.device))
+        require_finite(out["logits"], "refiner logits")
         logits = center_prediction(out['logits'].float(), tile, cfg).cpu()
         probability = logits.softmax(1)
         result = {'logits': logits, 'probabilities': probability,

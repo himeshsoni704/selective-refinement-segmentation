@@ -35,6 +35,7 @@ def arguments():
     parser.add_argument("--split", choices=("selector", "val", "test"), default="val")
     parser.add_argument("--backbones", choices=("combined", "resnet", "efficientnet"), default="combined")
     parser.add_argument("--fusion", choices=("concat", "fpn", "inception"), default="fpn")
+    parser.add_argument("--precision", choices=("auto", "fp32", "fp16", "bf16"), default="auto")
     parser.add_argument("--evidence", choices=("none", "predictions", "full"), default="full")
     parser.add_argument("--neighbourhood", choices=("none", "mean", "learned", "conv"), default="none")
     parser.add_argument("--actions", nargs="+", choices=ACTION_NAMES, default=["low", "high"])
@@ -95,7 +96,7 @@ def configuration(args):
         cfg["specialist"]["pretrained"] = False
     if args.seed is not None:
         cfg["seed"] = args.seed
-    names = ("fusion", "train_exits", "exit_policy", "exit_iou_tolerance", "evidence",
+    names = ("fusion", "precision", "train_exits", "exit_policy", "exit_iou_tolerance", "evidence",
              "neighbourhood", "actions", "candidate_fraction", "min_pair_mass", "support_mass",
              "refine_fraction", "action_time_penalty")
     cfg["hybrid"] = {name: getattr(args, name) for name in names}
