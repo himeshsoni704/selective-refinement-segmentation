@@ -105,7 +105,7 @@ def train_reader(base, records, reader, steps, rng, out, detail_only=False):
         pc, _ = base.overview(image)
         target = area(truth, tile)[None].to(base.device)
         local = high_logits(base, image, pc, tile)
-        logits = reader(local, image, tile, "detail" if detail_only else actions[step % len(actions)], {})
+        logits = reader(local, image, tile, "target_only" if detail_only else actions[step % len(actions)], {})
         loss = F.cross_entropy(logits, target, ignore_index=ignore)
         if not torch.isfinite(loss):
             raise FloatingPointError(f"Reader loss at step {step}, image {rec['id']}")
@@ -201,7 +201,7 @@ def benchmark(base, reader, records, mode, bundle, budget, fraction, repetitions
     cfg = base.cfg
     metric = Metrics(cfg["classes"], ignore=cfg["ignore_index"])
     rows, latencies = [], []
-    calls = {name:0 for name in (*ACTIONS, *CONTROLS)}
+    calls = {name:0 for name in (*ACTIONS, *CONTROLS, "target_only")}
     peak = 0
     for i, rec in enumerate(records):
         image, truth = read_sample(rec, cfg)
@@ -245,8 +245,13 @@ def benchmark(base, reader, records, mode, bundle, budget, fraction, repetitions
         cm = metric.add(result[0],truth)
         diag = correction_diagnostics(pc[0].argmax(0),mask,truth,cfg)
         rows.append(dict(id=rec["id"], confusion=cm, ms=elapsed,
+                         yolo_calls=cache.get("yolo_calls",0), yolo_rois=cache.get("yolo_rois",0),
+                         yolo_empty=cache.get("yolo_empty",0),
                          acquisition_ms=statistics.median(acquisition_times[-repetitions:]), actions=selected, **diag))
     return dict(**metric.report(), images=rows, calls=calls, peak_gpu_bytes=peak,
+                detector_calls=sum(r["yolo_calls"] for r in rows),
+                retained_proposals=sum(r["yolo_rois"] for r in rows),
+                empty_detector_calls=sum(r["yolo_empty"] for r in rows),
                 mean_ms=float(np.mean(latencies)), median_ms=float(np.median(latencies)),
                 p95_ms=float(np.percentile(latencies,95)), incremental_budget_ms=budget,
                 observed_acquisition_overrun_rate=(sum(r["acquisition_ms"]>budget for r in rows)/len(rows)
@@ -271,7 +276,19 @@ def experiment(args, root):
             raise ValueError(f"{stage} checkpoint overlaps selector/val images")
     seed_all(args.seed)
     reader = ContextReader(6).to(base.device)
-    write(root/"protocol.json",dict(args=vars(args), config=cfg, views=VIEWS, actions=ACTIONS,
+    proposal_config = None
+    if args.yolo_weights:
+        from importlib.metadata import version
+        from .yolo_regions import FrozenProposer, ProposalReader
+        weights = Path(args.yolo_weights).resolve(strict=True)
+        # Preserve the CPU RNG stream used later to initialize/train the gain policy.
+        with torch.random.fork_rng(devices=[]):
+            proposer = FrozenProposer(weights,base.device,args.proposal_confidence,args.proposal_top_k)
+            reader.proposals = ProposalReader(proposer,6,args.proposal_pooling).to(base.device)
+        proposal_config = dict(sha256=fingerprint(weights), confidence=args.proposal_confidence,
+                               top_k=args.proposal_top_k,pooling=args.proposal_pooling,
+                               ultralytics=version("ultralytics"), torchvision=version("torchvision"))
+    write(root/"protocol.json",dict(yolo=proposal_config,args=vars(args), config=cfg, views=VIEWS, actions=ACTIONS,
          specialist_sha256=fingerprint(args.specialist) if args.specialist else None,
          manifest_sha256=fingerprint(args.manifest), checkpoints=base.provenance,
          code=subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip(),
@@ -309,6 +326,8 @@ def experiment(args, root):
     if args.stage == "locked-test":
         study = Path(args.trained_run)
         original = json.loads((study/"protocol.json").read_text())
+        if original.get("yolo") != proposal_config:
+            raise ValueError("Use the same YOLO weights, version and proposal settings as development")
         test = [r for r in records if r["split"]=="test"]
         if not test or original["manifest_sha256"] != fingerprint(args.manifest) or original["checkpoints"] != base.provenance or original["config"] != cfg:
             raise ValueError("Locked study inputs differ or test split is empty")
@@ -341,7 +360,7 @@ def experiment(args, root):
         return
     initial = {k:v.clone() for k,v in reader.state_dict().items()}
     train_reader(base,groups["train"],reader,args.steps,rng,root/"detail_only_reader.pt",detail_only=True)
-    run_report("trained_detail_only","detail")
+    run_report("trained_detail_only","target_only")
     reader.load_state_dict(initial)
     train_reader(base,groups["train"],reader,args.steps,random.Random(args.seed),root/"reader.pt")
     for mode in ACTIONS[1:]:
@@ -378,6 +397,10 @@ def main():
     p.add_argument("--base-run",default="runs/deepglobe")
     p.add_argument("--output",required=True,help="Fresh directory")
     p.add_argument("--trained-run",help="Completed development study for locked-test")
+    p.add_argument("--yolo-weights",help="Local frozen YOLOv8 detection .pt for proposal evidence")
+    p.add_argument("--proposal-confidence",type=float,default=.05)
+    p.add_argument("--proposal-top-k",type=int,default=6)
+    p.add_argument("--proposal-pooling",choices=("learned","uniform"),default="learned")
     p.add_argument("--specialist",help="Optional frozen binary checkpoint for post-fusion paired ablation")
     p.add_argument("--steps",type=int,default=2000)
     p.add_argument("--epochs",type=int,default=60)
@@ -387,6 +410,8 @@ def main():
     p.add_argument("--budgets",type=float,nargs="+",default=[100.,250.])
     p.add_argument("--device",default="cuda")
     args = p.parse_args()
+    if not 0 <= args.proposal_confidence <= 1 or args.proposal_top_k < 1:
+        p.error("Invalid proposal confidence or top-k")
     if min(args.steps,args.epochs,args.passes)<1 or not 0<args.candidate_fraction<=1:
         p.error("Require positive counts and candidate fraction in (0,1]")
     if any(not np.isfinite(b) or b<0 for b in args.budgets) or len(set(args.budgets))!=len(args.budgets):

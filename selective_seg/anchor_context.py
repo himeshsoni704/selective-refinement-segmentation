@@ -52,6 +52,7 @@ def high_logits(base, image, pc, tile, side=640, network_side=None, control=Fals
 class ContextReader(nn.Module):
     def __init__(self, classes):
         super().__init__()
+        self.proposals = None
         self.encoder = nn.Sequential(nn.Conv2d(3, 12, 5, stride=4, padding=2), nn.ReLU(),
                                      nn.Conv2d(12, 16, 3, stride=2, padding=1), nn.ReLU())
         self.projection = nn.Linear(16 * 4 * 4, 24)
@@ -82,7 +83,7 @@ class ContextReader(nn.Module):
 
     def forward(self, local, image, tile, action, cache):
         device = local.device
-        sources = SOURCES if action == "all" else (() if action == "detail" else (action,))
+        sources = SOURCES if action == "all" else (() if action in ("detail", "target_only") else (action,))
         embeddings = []
         for name in sources:
             if name == "scene":
@@ -97,6 +98,8 @@ class ContextReader(nn.Module):
         if embeddings:
             values = torch.stack(embeddings, dim=1)
             summary = (values * self.weight(values).softmax(1)).sum(1)
+        if self.proposals is not None and action != "target_only":
+            summary = summary + self.proposals(image, tile, sources, local, cache)
         local_grid = F.adaptive_avg_pool2d(local, (32, 32))
         residual = self.head(torch.cat((local_grid, summary[:, :, None, None].expand(-1,-1,32,32)), 1))
         return local + F.interpolate(residual, local.shape[-2:], mode="bilinear", align_corners=False)

@@ -183,3 +183,86 @@ The experiment tests whether selective paid views add value beyond a fixed
 wider window and an amortized scene view under measured budgets. Concentric
 geometry alone is not a novelty claim. GPU performance and segmentation gains
 must be measured on the actual workstation.
+
+YOLO-guided proposals (optional paired experiment)
+=================================================
+Choose B: propose subregions that may help the anchor. The detector supplies
+candidate locations and features. Ground truth supervises six-class anchor
+segmentation and the existing signed gain targets, without pseudo-box labels.
+YOLOv8n is trained on COCO: scores can miss fields or concentrate on irrelevant
+objects. Do not interpret proposals as validated field, road or boundary labels.
+
+From the existing checkout on the CUDA workstation:
+
+    git fetch origin research/hybrid-specialist
+    git switch research/hybrid-specialist
+    git pull --ff-only origin research/hybrid-specialist
+    export PYTHON_BIN="${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/}python"
+    if [ -x /home/himesh/Downloads/.venv/bin/python ]; then
+        export PYTHON_BIN=/home/himesh/Downloads/.venv/bin/python
+    fi
+    bash scripts/start_yolo_comparison.sh --seed 42 --steps 2000 --epochs 60 \
+      --passes 3 --candidate-fraction 0.30 --budgets 100 250
+
+The launcher checks CUDA NMS, installs ultralytics==8.3.228 when needed while
+constraining the installed torch/torchvision versions, downloads the official
+YOLOv8n asset into runs/model-assets and checks its SHA-256. It runs two short
+pilots before starting one systemd user unit. The full no-YOLO and YOLO studies
+run sequentially with the same seed, manifest, budgets, candidate cap and step
+counts. Budget fractions round up (30% of 25 = 8 eligible tiles). Keep the
+shell open until submission is confirmed. Use an idle GPU and the same Python
+environment for both studies. No existing job is stopped. Use CONFIG, MANIFEST
+and BASE_RUN as above; set YOLO_WEIGHTS to an existing trusted local standard
+YOLOv8 detection checkpoint to replace the downloaded default. Its SHA-256
+and library versions are recorded. Do not use a segmentation or end-to-end head.
+
+Read runs/yolo-pair-XXXXXXXX/comparison.json after both jobs finish. Each
+study has status.json and the worker logs both to service.log. Inspect paired
+image-bootstrap intervals for mIoU, directional damage, A/R IoU, empty calls,
+ROI counts and actual mean/P95 latency. Counts represent one inference per
+image, excluding timing repeats. The report pairs identical operating settings;
+match observed latency across budgets for the efficiency claim. LOADED detector
+weights contribute to GPU residency even for a control that makes no calls.
+
+Experiments, in order:
+1. no-yolo/keep.json and original frozen experts. For legacy calibrated
+   selective, use the separate benchmark command above.
+2. no-yolo/dense_all.json vs yolo/dense_all.json: same nested scale set,
+   trained fusion with/without proposal evidence; includes detector cost.
+3. Within yolo/, compare dense and entropy-ranked fixed scales against
+   learned_100ms.json and learned_250ms.json. Compare the same learned
+   policies between the two studies at matched measured cost.
+4. Test whether learned ROI weights matter. In the same GPU environment
+   run a single guided study with --proposal-pooling uniform:
+
+    bash scripts/start_anchor_service.sh --yolo-weights "$PWD/runs/model-assets/yolov8n.pt" \
+      --proposal-pooling uniform --candidate-fraction .30 --seed 42 --budgets 100 250
+
+5. Add --specialist /absolute/path/to/specialist.pt to the paired launcher
+   for the optional paid binary post-fusion ablation on the same anchors.
+6. For the chosen guided locked-test configuration, add --yolo-weights and
+   repeat the same confidence, top-k and pooling values used in development.
+   The validator verifies detector identity and settings. Prespecify one
+   tested budget and the validated candidate cap as in the core instructions.
+
+Implementation details:
+Only selected acquisitions call the frozen detector. “detail” examines the
+local 640 footprint at 512; medium/large/scene also examine the acquired view
+at 384/256/160 respectively. “all” uses local plus all three. A full scene
+detection pass and its ROIs are reused within the image. First-stage routing
+uses the pre-purchase coarse descriptor; ROI evidence influences its signed
+gain training targets and the subsequent segmentation. No YOLO scores from
+unpaid views enter the live selector. The raw maximum class probability ranks
+candidates; category-agnostic NMS at IoU .5 keeps up to six per view above
+confidence .05. Boxes are clipped to real-image bounds and RoIAlign pools
+the detector's first detection-pyramid feature. A small trainable reader uses
+anchor-relative coordinates, scale, confidence, and pooled target class
+probabilities to weight regions, with a null option. Weights express a learned
+fusion preference; they are not calibrated per-region causal utilities.
+The frozen SegFormer logits already include coarse segmentation evidence.
+When every proposal is empty the proposal branch contributes zero, although
+the detector time is still charged. The target-only control bypasses YOLO.
+No detector training, weights redistribution or pixel-label remapping is needed.
+
+Optional local tests with real detector weights:
+    YOLO_TEST_WEIGHTS="$PWD/runs/model-assets/yolov8n.pt" python -m pytest -q tests/test_yolo_regions.py
